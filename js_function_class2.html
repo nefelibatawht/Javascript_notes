@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数的apply</title>
+</head>
+<body>
+    <script>
+        //使用apply方法可以编写属于不同对象的方法
+        var person={
+             fullName:function(){return this.firstName+' '+this.lastName;}
+            };
+        var person1={
+            firstName:'Bill',
+            lastName:'Gates',
+            age:60,
+        };
+        var x=person.fullName.apply(person1);
+        console.log(x);
+        //apply()方法接收参数接收的是数组中的参数
+        //call()方法接收的是任何形式参数
+        var animals={
+            fullInformation:function(country,home,place){return this.fullname+' '+country+' '+home+' '+place;}
+
+        };
+        var lion={
+            fullname:'lion',
+
+        };
+        var cat={
+            fullname:'cat',
+        };
+     var y= animals.fullInformation.apply(lion,['China','SiChuan','zoo']);
+     console.log(y);
+     var z=animals.fullInformation.call(cat,'US','LA','museum');
+     console.log(z);
+     
+    </script>
+</body>
+</html>

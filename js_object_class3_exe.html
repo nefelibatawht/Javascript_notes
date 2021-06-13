@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象访问器练习——计时器</title>
+</head>
+<body>
+    <div id='demo'></div>
+  
+    <script>
+        var jsq={
+            counter:0,
+        };
+    Object.defineProperty(jsq,'reset',{get:function(){this.counter=0;}});
+    Object.defineProperty(jsq,'increase',{get:function(){this.counter++;}});
+    Object.defineProperty(jsq,'decrease',{get:function(){this.counter--;}});
+    Object.defineProperty(jsq,'add',{set:function(value){this.counter+=value;}});
+    jsq.reset;
+    jsq.add=5;
+   jsq.increase;
+    jsq.decrease;
+    jsq.decrease;             
+   document.getElementById('demo').innerHTML=jsq.counter;
+</script>
+  
+</body>
+</html>

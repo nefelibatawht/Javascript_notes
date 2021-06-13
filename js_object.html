@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript对象的属性和可变性</title>
+</head>
+<body>
+    <script>
+        var object01={
+            name:"javascript",
+            createdIn:1995,
+            createrBy:'Sun',
+            show: function (){
+              return this.name;
+            }
+        };
+        var showing=object01.show();
+        console.log(showing);
+        object01.name='java';
+        console.log(object01.name);
+        
+        var d=new Date();
+        console.log(d.getFullYear(),d.getMonth()+1,' ',d.getDate(),' ',d.getDay(),' ',d.getHours(),' ',d.getMinutes(),' ',d.getSeconds() );
+    </script>
+</body>
+</html>

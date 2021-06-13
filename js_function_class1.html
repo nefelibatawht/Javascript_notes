@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS函数相关</title>
+</head>
+<body>
+    <script>
+        //使用Function()构造器创建函数
+        var myFunction= new Function('a','b','return a+b');
+        var a=myFunction(2,3);
+        console.log(a);
+        console.log(typeof(myFunction));//此时myFunction是函数类型，typeof()返回为function
+        window.myFunction(3,2);
+        //使用call()方法，可以实现方法重用，调用属于另一个对象的方法
+        var person={
+            fname:'Kevin',
+            lname:'Steve',
+            city:'NewYork',
+            country:'USA',
+            getName:function(){
+                return this.fname+' '+this.lname;
+            }
+        };
+        var person_another={
+            fname:'bill',
+            lname:'gates',
+        };
+        document.write(person.getName.call(person_another));
+        //call()方法可以带参数
+        var person1={
+            city:'NewYork',
+            country:'USA',
+            getInf:function(){
+                return this.city+' '+this.country;
+            }
+        };
+        document.write(person1.getInf.call(person))
+    </script>
+</body>
+</html>

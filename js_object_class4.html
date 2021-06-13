@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象构造器</title>
+</head>
+<body>
+     <script>
+         //比较类似类和对象，构造器函数就相当于类,采用new 的方法创建对象
+         function Person(fname,lname,age,eye){
+             this.fname=fname;
+             this.lname=lname;
+             this.age=age;
+             this.eye=eye;
+             this.getAgePlusTen=function(){return (this.age+10);};
+             this.getSon=function(name){return this.lname+ "'son is"+ name;};
+         }
+            
+         var  txt="";
+         var myfather= new Person('bill','gate',63,'blue');
+         var mymother= new Person('Alice','Fame',55,'green');
+         //对象实例是有限制的，只能创建出单一对象，而想创建出许多相同类型，需要定义类（构造器函数）
+         //构造器函数中的this没有含义，代指新创建的对象，是新创建的对象的替代物
+         myfather.nation='China';//为构造出的对象添加属性
+        for (var key in mymother){
+            
+            txt += mymother[key]+ " ";
+        };
+        console.log(txt);
+        Object.defineProperty(myfather,'getFullName', {get:function(){return this.fname+" "+this.lname;}});
+        console.log(myfather.getFullName);
+        console.log(mymother.getAgePlusTen());
+        console.log(myfather.getSon('Kevin'));
+        //JS的内建构造器
+        var d=new Date();
+        console.log(d.getMonth());//输出5
+        var arr=new Array('2',3,4,'qwe');
+        for(var i=0;i<arr.length;i++){
+            document.write(arr[i]);
+        }
+
+     </script>   
+</body>
+</html>

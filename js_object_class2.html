@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js对象的属性和方法</title>
+</head>
+<body>
+    <script>
+        //本节包含 for in 循环进行遍历，添加和删除属性，对象方法
+
+        var person={
+            fname:'BILL',
+            lname:'GATE',
+            age:63,
+        };
+        //使用for  in循环对对象的属性进行遍历
+        var txt='';
+        for (var key in person){
+            txt += person[key]+ ' ';
+        }//本质上JS对象也是一种数组（关联数组）
+        document.write(txt);
+        //添加和删除属性
+        person.nation='England';
+        delete person.age;   
+        for (var key in person){
+            var tst='';
+            tst += person[key]+'';
+        };
+        document.write(tst);
+        //JS对象方法
+        person.fullname=function(){return this.fname+" "+this.lname;};
+        console.log(person.fullname());
+        //一种使字符串全部大写的方法
+        var message='hello world';
+        console.log(message.toUpperCase());
+
+
+    </script>
+
+</body>
+</html>

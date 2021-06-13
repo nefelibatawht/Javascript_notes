@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS函数闭包</title>
+</head>
+<body>
+    <script>
+        //全局变量通过闭包实现私有化
+        //网页中，全局变量属于window对象，能够被页面中所有的脚本使用和修改
+        //局部变量指在指定代码段中
+
+
+        //内部函数plus()
+        //内部函数可以访问父函数的变量
+        function add(){
+            var counter=0;
+            function plus(){counter++;};
+            plus();
+            return counter;
+        };
+        var x=add();
+        console.log(x);
+
+
+    </script>
+</body>
+</html>

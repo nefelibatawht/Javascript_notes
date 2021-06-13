@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象构造器和访问器</title>
+</head>
+<body>
+    <p class='demo'></p>
+    <div id='demo1'></div>
+    <script>
+        //JS访问器（getter和setter）
+        var person={
+            fname:'BILL',
+            lname:'GATE',
+            age:63,
+            language:'english',
+            company:'',//使用setter现将对应属性设为空串
+            number:'',
+            get lan(){
+                return this.language;
+            },
+            set com(value){
+                this.company=value;
+            },
+            set num(num){//相当于构造含参数的函数
+                this.number=num;
+            }
+        };
+        document.getElementsByClassName('demo')[0].innerHTML=person.lan;
+        person.com='MS';//相当于给对象方法传参
+        person.num='23love';
+        console.log(person.company);
+        document.getElementById('demo1').innerHTML=person.company;
+        console.log(parseInt(person.number));
+        //Getter 和 Setter提供了更简洁的语法和数据质量
+        //Object.defineProperty
+    </script>
+</body>
+</html>

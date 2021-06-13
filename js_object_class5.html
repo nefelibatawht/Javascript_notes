@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS对象原型</title>
+</head>
+<body>
+    <script>
+        //主要包含原型的继承等面向对象知识
+        function Person (fname,lname,age,eye){
+            this.fname=fname;
+            this.lname=lname;
+            this.age=age;
+            this.eye=eye;
+        };
+        //prototype属性是给   构造器   添加属性和方法
+        //区分给对象添加方法和属性
+        Person.prototype.name=function(){return this.fname+' '+this.lname;};
+        var a_Man=new Person('bill','gates',63,'blue');
+        console.log(a_Man.name());   
+
+    </script>
+
+</body>
+</html>
